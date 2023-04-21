@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const Sidebar = () => {
     const {list} = useSelector(({categories}) => categories);
 
-    console.log(list)
+    
     
 
     return (
