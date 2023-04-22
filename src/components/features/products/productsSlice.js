@@ -19,9 +19,14 @@ const productsSlice = createSlice({
     name: 'products',
     initialState: {
         list: [],
-        // filtered: [],
-        // related: [],
+        filtered: [],
+        related: [],
         isLoading: false
+    },
+    reducers: {
+        filterByPrice: (state, {payload}) => {
+            state.filtered = state.list.filter(({price}) => price < payload);
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(getProducts.pending, (state) => {
@@ -36,5 +41,7 @@ const productsSlice = createSlice({
         });
     }
 });
+
+export const {filterByPrice} = productsSlice.actions;
 
 export default productsSlice.reducer;
