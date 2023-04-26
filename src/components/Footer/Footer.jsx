@@ -1,41 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
+import styles from "../../styles/Footer.module.css";
+import { ROUTES } from "../../utils/routes";
 
-import styles from '../../styles/Footer.module.css';
+import LOGO from "../../images/logo.png";
 
-import { ROUTES } from '../../utils/routes';
+const Footer = () => (
+  <section className={styles.footer}>
+    <div className={styles.logo}>
+      <Link to={ROUTES.HOME}>
+        <img src={LOGO} alt="Stuff" />
+      </Link>
+    </div>
 
-import LOGO from '../../images/logo.svg';
+    <div className={styles.rights}>
+      Developed by{" "}
+      <a href="https://github.com/yakovlavrinov" target="_blank" rel="noreferrer">
+        YAKOV
+      </a>
+    </div>
 
-const Footer = () => {
-    return (
-        <section className={styles.footer}>
-            <div className={styles.logo}>
-                <Link to={ROUTES.HOME}>
-                    <img src={LOGO} alt="Stuff" />
-                </Link>
-            </div>
+    <div className={styles.socials}>
+      <a href="https://instagram.com" target="_blank" rel="noreferrer">
+        <svg className="icon">
+          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#instagram`} />
+        </svg>
+      </a>
 
-            <div className={styles.rights}>
-                Developed by YAKOV
-            </div>
+      <a href="https://facebook.com" target="_blank" rel="noreferrer">
+        <svg className="icon">
+          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#facebook`} />
+        </svg>
+      </a>
 
-            <div className={styles.socials}>
-                <svg className="icon">
-                    <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#instagram`} />
-                </svg>
-
-                <svg className="icon">
-                    <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#facebook`} />
-                </svg>
-
-                <svg className="icon">
-                    <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#youtube`} />
-                </svg>
-            </div>
-        </section>
-    );
-};
+      <a href="https://youtube.com" target="_blank" rel="noreferrer">
+        <svg className="icon">
+          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#youtube`} />
+        </svg>
+      </a>
+    </div>
+  </section>
+);
 
 export default Footer;
